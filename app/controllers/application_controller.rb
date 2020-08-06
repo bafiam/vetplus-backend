@@ -27,17 +27,17 @@ class ApplicationController < ActionController::API
     @user_id = decoded_token[:user_id][0]['user_id']
     @current_user = User.find(@user_id)
   rescue ActiveRecord::RecordNotFound => e
-    render json: { errors: e.message }, status: :unauthorized
+    render json: {status: 'FAIL', errors: e.message }
   rescue JWT::DecodeError => e
     Blacklist.create(token: @token)
-    render json: { errors: e.message, alert: 'token blacklisted' }, status: :unauthorized
+    render json: { status: 'FAIL', errors: e.message, alert: 'token blacklisted' }
   end
 
   def verify?
     if Blacklist.where(token:@token).exists?
       @user_id = 0
       @current_user = nil
-      render json: { errors:'token already blacklisted, Please log in again' }, status: :unauthorized
+      render json: { status: 'FAIL', errors:'token already blacklisted, Please log in again' }
     end
   end
 end
