@@ -8,10 +8,9 @@ module Api
         @user = User.create(user_params)
         if @user.valid?
           @token = encode_token(user_id: @user.id)
-          render json: { status: 'SUCCESS', message: 'Account created', user: UserSerializer.new(@user), jwt: @token }, status: :created
+          render json: { status: 'SUCCESS', messages: 'Account created', user: UserSerializer.new(@user), jwt: @token }, status: :created
         else
-          render json: { errors: @user.errors.full_messages },
-                 status: :unprocessable_entity
+          render json: { errors: @user.errors.full_messages }
         end
       end
     
