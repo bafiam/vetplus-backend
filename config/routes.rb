@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     namespace 'v1' do
       resources :user, only: [:create]
       resources :login, only: %i[create index]
-      resources :logout, only: [:create]
+      resources :logout, only: [:index]
     end
   end
 end
