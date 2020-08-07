@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       resources :user, only: [:create]
       resources :login, only: %i[create index]
       resources :logout, only: [:index]
+      resources :vet, only: %i[index create]
+      resources :profile, only: %i[index create]
     end
   end
 end

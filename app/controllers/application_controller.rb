@@ -40,4 +40,9 @@ class ApplicationController < ActionController::API
       render json: { status: 'FAIL', errors:'token already blacklisted, Please log in again' }
     end
   end
+  def profile?
+    if Profile.where(user_id:@user_id).exists?
+      render json: { status: 'FAIL', errors:'Profile already set, You can only update it'}
+    end
+  end
 end
