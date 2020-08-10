@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :vet, only: %i[index create]
       resources :profile, only: %i[index create]
       resources :admin, only: %i[index update]
+      resources :appointment, only: %i[create index]
     end
   end
 end
