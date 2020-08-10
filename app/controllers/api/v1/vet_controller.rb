@@ -19,7 +19,6 @@ module Api
       end
 
       def create
-        puts( "hahahahah",params[:profile][:first_name])
         @vet = Vet.create(first_name: params[:profile][:first_name],
                           second_name: params[:profile][:second_name],
                           tel_number: params[:profile][:tel_number],

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :logout, only: [:index]
       resources :vet, only: %i[index create]
       resources :profile, only: %i[index create]
+      resources :admin, only: %i[index update]
     end
   end
 end
