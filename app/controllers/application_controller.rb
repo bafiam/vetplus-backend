@@ -45,4 +45,9 @@ class ApplicationController < ActionController::API
       render json: { status: 'FAIL', errors:'Profile already set, You can only update it'}
     end
   end
+  def vet?
+    if Vet.where(user_id:@user_id).exists?
+      render json: { status: 'FAIL', errors:'Profile already set, You can only update it'}
+    end
+  end
 end

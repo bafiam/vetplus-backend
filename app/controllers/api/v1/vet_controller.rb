@@ -3,11 +3,11 @@
 module Api
   module V1
     class VetController < ApplicationController
-      before_action :profile?
-      skip_before_action :profile?, only: [:index]
+      before_action :vet?
+      skip_before_action :vet?, only: [:index]
 
       def index
-        @vet = @current_user.profile
+        @vet = @current_user.vet
         if @vet
           render json: { status: 'SUCCESS',
                          messages: 'Profile data',
@@ -19,6 +19,7 @@ module Api
       end
 
       def create
+        puts( "hahahahah",params[:profile][:first_name])
         @vet = Vet.create(first_name: params[:profile][:first_name],
                           second_name: params[:profile][:second_name],
                           tel_number: params[:profile][:tel_number],
