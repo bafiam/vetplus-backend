@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :user_type, presence: true
   has_one :profile, dependent: :destroy
   has_one :vet, dependent: :destroy
+  has_many :appointments
 end
