@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       resources :profile, only: %i[index create]
       resources :admin, only: %i[index update]
       resources :appointment, only: %i[create index]
+      resources :doctor, only: [:index]
+      resources :patient, only: [:index]
     end
   end
 end
