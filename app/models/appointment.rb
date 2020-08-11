@@ -3,6 +3,6 @@
 class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :vet
-  validates :type, presence: true
-  validates :data, presence: true
+  validates :booking_type, presence: true
+  validates :date, presence: true
 end
