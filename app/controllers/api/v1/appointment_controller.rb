@@ -19,7 +19,7 @@ module Api
         if Appointment.where(date: params[:appointment][:date],
                              vet_id: params[:appointment][:vet],
                              booking_type: params[:appointment][:booking_type],
-                             user: @current_user).exists?
+                             profile: @current_user.profile).exists?
           render json: { status: 'FAIL', errors: 'Dublication detected' }
         else
 
@@ -27,7 +27,7 @@ module Api
             date: params[:appointment][:date],
             vet_id: params[:appointment][:vet],
             booking_type: params[:appointment][:booking_type],
-            user: @current_user
+            profile: @current_user.profile
           )
           if @appointment.valid?
             render json: { status: 'SUCCESS',
