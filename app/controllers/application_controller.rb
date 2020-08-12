@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
   before_action :authorized, :verify?
 
-  HMAC_SECRET = "Rails.application.secrets.secret_key_base"
+  HMAC_SECRET = 'Rails.application.secrets.secret_key_base'.freeze
 
   def encode_token(payload, exp = 2.hours.from_now)
     payload[:exp] = exp.to_i
