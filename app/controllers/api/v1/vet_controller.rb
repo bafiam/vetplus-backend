@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Api
   module V1
     class VetController < ApplicationController
@@ -35,5 +33,5 @@ module Api
         end
       end
     end
-end
+  end
 end

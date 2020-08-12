@@ -1,20 +1,17 @@
-# frozen_string_literal: true
-
 module Api
   module V1
     class AdminController < ApplicationController
       def index
-        @allVets = Vet.where(approved_status:'No')
-        if @allVets
+        @all_vets = Vet.where(approved_status: 'No')
+        if @all_vets
           render json: { status: 'SUCCESS',
                          messages: 'Profile data',
-                         profile: @allVets }
+                         profile: @all_vets }
         else
           render json: { status: 'FAIL',
                          errors: 'No unapproved profile at this time' }
         end
       end
- 
 
       def update
         @get_vet = Vet.find(params[:status][:id])

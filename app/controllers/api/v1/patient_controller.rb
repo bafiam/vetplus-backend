@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
 module Api
   module V1
     class PatientController < ApplicationController
       def index
         user_profile = @current_user.profile
-        appointments_u = Appointment.order(date: :desc).where(profile:user_profile)
+        appointments_u = Appointment.order(date: :desc).where(profile: user_profile)
         if appointments_u
           render json: { status: 'SUCCESS',
                          messages: 'User appointments',

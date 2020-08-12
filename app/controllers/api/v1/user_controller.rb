@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Api
   module V1
     class UserController < ApplicationController
@@ -22,5 +20,5 @@ module Api
         params.require(:user).permit(:email, :username, :password, :password_confirmation, :user_type)
       end
     end
-end
+  end
 end

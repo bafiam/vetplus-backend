@@ -4,5 +4,4 @@ class ProfileSerializer < ActiveModel::Serializer
   class UserSerializer < ActiveModel::Serializer
     attributes :username, :email, :user_type
   end
-  
 end

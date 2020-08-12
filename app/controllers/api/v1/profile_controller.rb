@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Api
   module V1
     class ProfileController < ApplicationController
@@ -9,10 +7,10 @@ module Api
         @profile = @current_user.profile
         if @profile
           render json: { status: 'SUCCESS',
-          messages: 'Profile data',
-          profile: ProfileSerializer.new(@profile) }
+                         messages: 'Profile data',
+                         profile: ProfileSerializer.new(@profile) }
         else
-          render json: { status: 'FAIL', errors: "Profile does not exist, create one first"}
+          render json: { status: 'FAIL', errors: 'Profile does not exist, create one first' }
         end
       end
 
@@ -30,8 +28,6 @@ module Api
           render json: { status: 'FAIL', errors: @profile.errors.full_messages }
         end
       end
-
-      
     end
-end
+  end
 end
