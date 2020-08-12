@@ -133,8 +133,8 @@ The following routes are available for authorization:
 
 ## Live Version
 
-This is the link to the live preview in Heroku. Feel free to visit.<br>
-[Veterinarian Appointment Booking System](https://#)<br>
+This is the link to the live preview in Heroku. Consist of the base URL<br>
+[Veterinarian Appointment Booking System](https://mighty-badlands-24775.herokuapp.com)<br>
 
 <!-- CONTACT -->
 
@@ -142,4 +142,4 @@ This is the link to the live preview in Heroku. Feel free to visit.<br>
 
 Stephen Gumba
 
-- [Github profile](https://github.com/bafi
+- [Github profile](https://github.com/bafiam
