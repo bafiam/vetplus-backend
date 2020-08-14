@@ -62,6 +62,12 @@ That's it, you app is lock and loaded!
 rails s
 ```
 
+Locally the system resouces can be accessed at the local base url
+
+```
+http://localhost:3000
+```
+
 ## Documentation
 
 ### Authentication
@@ -119,10 +125,10 @@ The following routes are available for authorization:
 | POST api/v1/user        | Register a new user                     |
 | POST api/v1/login       | Login in a user                         |
 | GET api/v1/login/       | Get user information                    |
-| GET api/v1/logout/      | Logout a user                           |
+| GET api/v1/logout       | Logout a user                           |
 | GET api/v1/appointment  | Fetch all approved vets profile         |
 | POST api/v1/appointment | Create an appointment with a vet        |
-| GET api/v1/patient/     | Fetch user booked appointments          |
+| GET api/v1/patient      | Fetch user booked appointments          |
 | GET api/v1/doctor       | Fetch vet appointments made by patients |
 | GET api/v1/profile      | Fetch user profile                      |
 | POST api/v1/profile     | Create a user profile                   |
@@ -142,4 +148,4 @@ This is the link to the live preview in Heroku. Consist of the base URL<br>
 
 Stephen Gumba
 
-- [Github profile](https://github.com/bafiam
+- [Github profile](https://github.com/bafiam)
