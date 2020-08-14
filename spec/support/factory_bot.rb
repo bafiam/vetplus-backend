@@ -30,5 +30,11 @@ RSpec.configure do |config|
       tel_number { Faker::Number }
       location { Faker::Address }
     end
+    factory :appointment do
+      vet
+      profile
+      booking_type { "video clinic" }
+      date { Faker::Date }
+    end
   end
 end
