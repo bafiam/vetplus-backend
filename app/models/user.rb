@@ -7,4 +7,3 @@ class User < ApplicationRecord
   has_one :vet, dependent: :destroy
   has_many :appointments
 end
- 

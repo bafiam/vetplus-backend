@@ -3,4 +3,3 @@ class Vet < ApplicationRecord
   validates :user_id, presence: true
   has_many :appointments
 end
- 

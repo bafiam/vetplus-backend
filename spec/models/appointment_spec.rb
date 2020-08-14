@@ -8,6 +8,5 @@ RSpec.describe Appointment, type: :model do
   context 'associations' do
     it { should belong_to(:vet) }
     it { should belong_to(:profile) }
-    
   end
 end
