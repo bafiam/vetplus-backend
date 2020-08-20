@@ -56,7 +56,14 @@ rails db:migrate
 rspec
 ```
 
-That's it, you app is lock and loaded!
+- Add super user `ADMIN`
+
+```
+
+rails db:seed
+```
+
+- That's it, you app is lock and loaded!
 
 ```
 rails s
@@ -93,6 +100,13 @@ The following routes are available for authorization:
 - `POST /api/v1/user?`
 
 ### Roles Claim
+  Important note
+```
+All new or newly created vets need the admin approval for their information to be displayed to patients/users. Unapproved vet cannot receive appointments as their account is under suspension. 
+Once you create a vet user, login with the admin credentials and approve the vet to processed
+Username:admin
+Password:123456789
+```
 
 #### Admin role
 
