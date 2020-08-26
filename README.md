@@ -1,24 +1,165 @@
-# README
+# Veterinary Clinic - Appointment Booking System Based on Rails Api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+This is an appointment booking application powered by Rails Api that provides the main functions you would expect from a booking system such as an admin system, a user/patient system and a doctor/vet system.
 
-* Ruby version
+Specification summary:
 
-* System dependencies
+- RESTful api.
+- Api versioning.
+- Booking app .
+- Patterns and good practices.
+- Users management.
+- Secret/token api key.
+- Rspec testing.
+- Setup scripts.
+- Postgres database.
+- Json serialization.
 
-* Configuration
+## Quick start
 
-* Database creation
+- Install ruby version 2.3.0 and set it with your ruby environment manager
+  ([more info here](https://www.ruby-lang.org/en/documentation/installation/)).
 
-* Database initialization
+- Install Postgres and start the PostgreSQL server in the foreground
+  ([more info here](https://wiki.postgresql.org/wiki/Detailed_installation_guides)).
 
-* How to run the test suite
+- Clone the repository and get inside it:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+git clone https://github.com/bafiam/vetplus-backend.git
 
-* Deployment instructions
+cd vetplus-backend
+```
 
-* ...
+- Create a postgres role to let rails manage the db:
+
+```
+rails db:create
+```
+
+- Setup the gems and databases:
+
+```
+bundle install
+```
+
+```
+
+rails db:migrate
+```
+
+- Run tests:
+
+```
+rspec
+```
+
+- Add super user `ADMIN`
+
+```
+
+rails db:seed
+```
+
+- That's it, you app is lock and loaded!
+
+```
+rails s
+```
+
+Locally the system resouces can be accessed at the local base url
+
+```
+http://localhost:3000
+```
+
+## Documentation
+
+### Authentication
+
+Authentication is performed using JSON Web Tokens. JSON Web Tokens are an open, industry standard [RFC 7519](https://tools.ietf.org/html/rfc7519) method for representing claims securely between two parties. When the user successfully logs in using their credentials, a JSON Web Token will be returned, which should be kept by clients in
+local storage (no cookies):
+
+```
+"token":"eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MzYyMjU5NDUsImV4cCI6MTUzNjMxMjM0NSwic3ViIjoiMzdjMDY2ZjgtNDhjMS00NDZjLTk4OGQtYzQ0ZDQ4MDJiNzZmIiwicm9sZXMiOlsiYWRtaW4iXX0.UwqjX27pGJHJoGjCMkLhBnwoszb9d590upnkRFM0LaA"}
+```
+
+**Note** Since there is no session information and every call to the REST API requires authentication, caching is used to improve performance and avoid
+excessive hits to the database. Upon login the user is cached with an expiration time of 5 minutes.
+
+Whenever the user wants to access a protected route or resource, the user agent should send the JWT in the Authorization header using the Bearer schema:
+
+`Authorization: Bearer <token>`
+
+The following routes are available for authorization:
+
+- `POST /api/v1/login?username=user&password=12345678`
+- `GET /api/v1/logout`
+- `POST /api/v1/user?`
+
+### Roles Claim
+  Important note
+```
+All new or newly created vets need the admin approval for their information to be displayed to patients/users. Unapproved vet cannot receive appointments as their account is under suspension. 
+Once you create a vet user, login with the admin credentials and approve the vet to processed
+Username:admin
+Password:123456789
+```
+
+#### Admin role
+
+- Approve veterinary accounts
+
+#### Veterinary role
+
+- Create a detailed account
+- View booked appointments
+
+#### Patient role
+
+- Create a detailed account
+- Veiw approved veterinary
+- Book an appointment
+- View upcomming and past appointments
+
+## Technology Used
+
+- Rails api
+- Postgres
+- Active model serializers
+- bcrypt
+- jwt
+
+### API Endpoints
+
+| API Endpoint            | Functionality                           |
+| ----------------------- | --------------------------------------- |
+| POST api/v1/user        | Register a new user                     |
+| POST api/v1/login       | Login in a user                         |
+| GET api/v1/login/       | Get user information                    |
+| GET api/v1/logout       | Logout a user                           |
+| GET api/v1/appointment  | Fetch all approved vets profile         |
+| POST api/v1/appointment | Create an appointment with a vet        |
+| GET api/v1/patient      | Fetch user booked appointments          |
+| GET api/v1/doctor       | Fetch vet appointments made by patients |
+| GET api/v1/profile      | Fetch user profile                      |
+| POST api/v1/profile     | Create a user profile                   |
+| GET api/v1/vet          | Create a vet profile                    |
+| POST api/v1/vet         | Create a vet profile                    |
+| PUT api/v1/admin/`<id>` | Admin approve vet profile               |
+| GET api/v1/admin        | Fetch unapprove vet profile             |
+
+## Live Version
+
+This is the link to the live preview in Heroku. Consist of the base URL<br>
+[Veterinarian Appointment Booking System](https://mighty-badlands-24775.herokuapp.com)<br>
+
+<!-- CONTACT -->
+
+## Authors
+
+Stephen Gumba
+
+- [Github profile](https://github.com/bafiam)
