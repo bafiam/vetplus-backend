@@ -2,13 +2,13 @@
 
 ## Introduction
 
-This is an appointment booking application powered by Rails Api that provides the main functions you would expect from a booking system such as an admin system, a user/patient system and a doctor/vet system.
+This is an appointment booking API developed using the Rails API that provides the main functions you would expect from a booking system such as an admin system, a user/patient system and a doctor/vet system.
 
 Specification summary:
 
 - RESTful api.
 - Api versioning.
-- Booking app .
+- Booking app.
 - Patterns and good practices.
 - Users management.
 - Secret/token api key.
@@ -126,18 +126,18 @@ Password:123456789
 
 ## Technology Used
 
-- Rails api
+- Rails API
 - Postgres
 - Active model serializers
 - bcrypt
-- jwt
+- JWT
 
 ### API Endpoints
 
 | API Endpoint            | Functionality                           |
 | ----------------------- | --------------------------------------- |
 | POST api/v1/user        | Register a new user                     |
-| POST api/v1/login       | Login in a user                         |
+| POST api/v1/login       | Login in a user              This is an appointment booking application powered by Rails A that provides the main functions you would expect from a booking system such as an admin system, a user/patient system and a doctor/vet system.           |
 | GET api/v1/login/       | Get user information                    |
 | GET api/v1/logout       | Logout a user                           |
 | GET api/v1/appointment  | Fetch all approved vets profile         |
@@ -162,4 +162,4 @@ This is the link to the live preview in Heroku. Consist of the base URL<br>
 
 Stephen Gumba
 
-- [Github profile](https://github.com/bafiam)
+- [GitHub profile](https://github.com/bafiam)
